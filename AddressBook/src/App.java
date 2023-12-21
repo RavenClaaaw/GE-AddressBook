@@ -3,3 +3,9 @@ public class App {
         System.out.println("Welcome To Address Book Program:-");
     }
 }
+
+class Contact{
+    String firstName, lastName;
+    String address, city, state;
+    int zip, contact;
+}
