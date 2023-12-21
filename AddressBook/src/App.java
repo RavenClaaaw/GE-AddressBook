@@ -7,5 +7,6 @@ public class App {
 class Contact{
     String firstName, lastName;
     String address, city, state;
+    String email;
     int zip, contact;
 }
