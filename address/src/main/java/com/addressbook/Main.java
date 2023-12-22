@@ -57,7 +57,8 @@ public class Main {
 
 class Contact{
     public String firstName, lastName, address, city, state, email;
-    public int zip, phoneNo;
+    public int zip;
+    public long phoneNo;
 
     Contact(){
         Scanner scanner = new Scanner(System.in);
@@ -78,7 +79,7 @@ class Contact{
         System.out.print("Email: ");
         this.email = scanner.nextLine();
         System.out.print("Contact: ");
-        this.phoneNo = scanner.nextInt();
+        this.phoneNo = scanner.nextLong();
         scanner.nextLine(); // Consume New Line
 
         // scanner.close();
