@@ -33,7 +33,14 @@ public class Main {
                     break;
                 
                 case 3:
-                    
+                    String firstNameD = scanner.nextLine();
+                    String lastNameD = scanner.nextLine();
+                    for(int i=0; i<addressBook.size(); i++){
+                        if(addressBook.get(i).firstName == firstNameD && addressBook.get(i).lastName == lastNameD){
+                            addressBook.remove(i);
+                        }
+                    }
+                    break;
 
                 default:
                     for(int i=0; i<addressBook.size(); i++){
