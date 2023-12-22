@@ -22,7 +22,9 @@ public class Main {
                     break;
 
                 case 2:
+                    System.out.print("ENTER FIRST NAME: ");
                     String firstNameE = scanner.nextLine();
+                    System.out.print("ENTER LAST NAME: ");
                     String lastNameE = scanner.nextLine();
                     for(int i=0; i<addressBook.size(); i++){
                         if(addressBook.get(i).firstName == firstNameE && addressBook.get(i).lastName == lastNameE){
@@ -33,7 +35,9 @@ public class Main {
                     break;
                 
                 case 3:
+                    System.out.print("ENTER FIRST NAME: ");
                     String firstNameD = scanner.nextLine();
+                    System.out.print("ENTER LAST NAME: ");
                     String lastNameD = scanner.nextLine();
                     for(int i=0; i<addressBook.size(); i++){
                         if(addressBook.get(i).firstName == firstNameD && addressBook.get(i).lastName == lastNameD){
