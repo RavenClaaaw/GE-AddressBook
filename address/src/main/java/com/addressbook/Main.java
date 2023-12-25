@@ -7,7 +7,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome To Address Book");
-        ArrayList<Contact> addressBook = new ArrayList<>();
+        AddressBook abook = new AddressBook(); 
+        ArrayList<Contact> addressBook = abook.wrapper();
 
         while(true){
             System.out.println("1. ADD \n2. EDIT \n3. DELETE \n4. Display");
