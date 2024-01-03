@@ -44,5 +44,13 @@ public class Contact{
 
     public boolean equals(Contact other) {
         return this.firstName.equals(other.firstName) && this.lastName.equals(other.lastName);
-    } 
+    }
+
+    public String toString(){
+        return this.firstName + " " + this.lastName + " " + this.address + " " + this.city + " " + this.state + " " + this.zip + " " + this.phoneNo + " " + this.email;
+    }
+
+    public void display(){
+        System.out.println(this.firstName + " " + this.lastName + " " + this.address + " " + this.city + " " + this.state + " " + this.zip + " " + this.phoneNo + " " + this.email);
+    }
 }

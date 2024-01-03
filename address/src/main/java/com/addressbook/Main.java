@@ -1,6 +1,8 @@
 package com.addressbook;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collector;
@@ -14,7 +16,7 @@ public class Main {
         ArrayList<Contact> addressBook = abook.wrapper();
 
         while(true){
-            System.out.println("\n1. ADD \n2. EDIT \n3. DELETE \n4. Display \n5. Search \n6. Count");
+            System.out.println("\n1. ADD \n2. EDIT \n3. DELETE \n4. Display \n5. Search \n6. Count \n7. Sort");
             System.out.print("ENTER OPTION:- ");
             int option = scanner.nextInt();
             scanner.nextLine();
@@ -97,6 +99,17 @@ public class Main {
                         System.out.println("TOTAL:- " + count);
                     }
 
+                    break;
+                
+                case 7:
+                    System.out.println("SORTED - FIRST NAME");
+                    List<Contact> sorted = addressBook.stream()
+                        .sorted(Comparator.comparing(contact -> contact.firstName))
+                        .collect(Collectors.toList());
+                    for(Contact i : sorted){
+                        i.display();
+                    }
+        
                     break;
 
                 default:
