@@ -14,7 +14,7 @@ public class Main {
         ArrayList<Contact> addressBook = abook.wrapper();
 
         while(true){
-            System.out.println("\n1. ADD \n2. EDIT \n3. DELETE \n4. Display \n5. Search");
+            System.out.println("\n1. ADD \n2. EDIT \n3. DELETE \n4. Display \n5. Search \n6. Count");
             System.out.print("ENTER OPTION:- ");
             int option = scanner.nextInt();
             scanner.nextLine();
@@ -71,6 +71,32 @@ public class Main {
                     for(Contact contact : cityFilter){
                         System.out.println(contact.firstName + " " + contact.lastName);
                     }
+                    break;
+
+                case 6:
+                    System.out.println("Count:- \n1. City \n2. State");
+                    option = scanner.nextInt();
+                    scanner.nextLine();
+                    if(option == 1){
+                        System.out.println("Enter City:- ");
+                        String searchCityCount = scanner.nextLine();
+
+                        int count = addressBook.stream()
+                        .filter(contact -> contact.city.equals(searchCityCount))
+                        .collect(Collectors.toList()).size();
+
+                        System.out.println("TOTAL:- " + count);
+                    } else{
+                        System.out.println("Enter State:- ");
+                        String searchStateCount = scanner.nextLine();
+
+                        int count = addressBook.stream()
+                        .filter(contact -> contact.state.equals(searchStateCount))
+                        .collect(Collectors.toList()).size();
+
+                        System.out.println("TOTAL:- " + count);
+                    }
+
                     break;
 
                 default:
