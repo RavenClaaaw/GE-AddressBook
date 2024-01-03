@@ -37,7 +37,7 @@ public class AddressBook {
     public void add(){
         Scanner scanner = new Scanner(System.in);
         while(true){
-            System.out.print("\nEnter Name:- ");
+            System.out.print("\nEnter Address Book Name:- ");
             String bookName = scanner.nextLine();
 
             ArrayList<Contact> newAddBook = new ArrayList<>();

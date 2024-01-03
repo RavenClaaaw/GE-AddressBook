@@ -1,13 +1,14 @@
 package com.addressbook;
 import java.util.Scanner;
 
-public class Contact {
+public class Contact{
     public String firstName, lastName, address, city, state, email;
     public int zip, phoneNo;
 
     Contact(){
         Scanner scanner = new Scanner(System.in);
 
+        System.out.println("\nENTER PERSON DETAILS:- ");
         System.out.print("First Name: ");
         this.firstName = scanner.nextLine();
         System.out.print("Last Name: ");
@@ -39,5 +40,9 @@ public class Contact {
         this.email = email;
         this.zip = zip;
         this.phoneNo = phoneNo;
+    }
+
+    public boolean equals(Contact other) {
+        return this.firstName.equals(other.firstName) && this.lastName.equals(other.lastName);
     } 
 }
