@@ -77,9 +77,9 @@ public class Main {
 
                 case 6:
                     System.out.println("Count:- \n1. City \n2. State");
-                    option = scanner.nextInt();
+                    int select = scanner.nextInt();
                     scanner.nextLine();
-                    if(option == 1){
+                    if(select == 1){
                         System.out.println("Enter City:- ");
                         String searchCityCount = scanner.nextLine();
 
@@ -102,14 +102,53 @@ public class Main {
                     break;
                 
                 case 7:
-                    System.out.println("SORTED - FIRST NAME");
-                    List<Contact> sorted = addressBook.stream()
-                        .sorted(Comparator.comparing(contact -> contact.firstName))
-                        .collect(Collectors.toList());
-                    for(Contact i : sorted){
-                        i.display();
+                    System.out.println("\nSORT BY: \n1. First Name \n2. CITY \n3. STATE \n4. Zip");
+                    System.out.print("ENTER:- ");
+                    select = scanner.nextInt();
+                    scanner.nextLine();
+                    List<Contact> sorted;
+
+                    switch (select) {
+                        case 1:
+                            sorted = addressBook.stream()
+                                .sorted(Comparator.comparing(contact -> contact.firstName))
+                                .collect(Collectors.toList());
+                            for(Contact i : sorted){
+                                i.display();
+                            }
+                            break;
+                        
+                        case 2:
+                            sorted = addressBook.stream()
+                                .sorted(Comparator.comparing(contact -> contact.city))
+                                .collect(Collectors.toList());
+                            for(Contact i : sorted){
+                                i.display();
+                            }
+                            break;
+
+                        case 3:
+                            sorted = addressBook.stream()
+                                .sorted(Comparator.comparing(contact -> contact.state))
+                                .collect(Collectors.toList());
+                            for(Contact i : sorted){
+                                i.display();
+                            }
+                            break;
+
+                        case 4:
+                            sorted = addressBook.stream()
+                                .sorted(Comparator.comparing(contact -> contact.zip))
+                                .collect(Collectors.toList());
+                            for(Contact i : sorted){
+                                i.display();
+                            }
+                            break;
+
+                        default:
+                            break;
                     }
-        
+
                     break;
 
                 default:
