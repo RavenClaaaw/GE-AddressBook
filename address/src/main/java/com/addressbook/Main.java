@@ -11,7 +11,7 @@ public class Main {
         ArrayList<Contact> addressBook = abook.wrapper();
 
         while(true){
-            System.out.println("1. ADD \n2. EDIT \n3. DELETE \n4. Display");
+            System.out.println("\n1. ADD \n2. EDIT \n3. DELETE \n4. Display");
             System.out.print("ENTER OPTION:- ");
             int option = scanner.nextInt();
             scanner.nextLine();
@@ -19,7 +19,11 @@ public class Main {
             switch (option) {
                 case 1:
                     Contact person = new Contact();
-                    addressBook.add(person);
+                    boolean duplicate = false;
+                    for(Contact i : addressBook) if(i.equals(person)){ duplicate = true; break; }
+
+                    if(duplicate) System.out.println("Error: Duplicate");
+                    else addressBook.add(person);
                     break;
 
                 case 2:
