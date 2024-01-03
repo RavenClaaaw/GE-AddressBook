@@ -1,5 +1,8 @@
 package com.addressbook;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -16,7 +19,7 @@ public class Main {
         ArrayList<Contact> addressBook = abook.wrapper();
 
         while(true){
-            System.out.println("\n1. ADD \n2. EDIT \n3. DELETE \n4. Display \n5. Search \n6. Count \n7. Sort");
+            System.out.println("\n1. ADD \n2. EDIT \n3. DELETE \n4. Display \n5. Search \n6. Count \n7. Sort \n8. Write");
             System.out.print("ENTER OPTION:- ");
             int option = scanner.nextInt();
             scanner.nextLine();
@@ -147,6 +150,22 @@ public class Main {
 
                         default:
                             break;
+                    }
+
+                    break;
+
+                case 8:
+                    try {
+                        BufferedWriter writer = new BufferedWriter(new FileWriter("address_book.txt"));
+                        for(Contact i : addressBook){
+                            writer.write(i.toString() + "\n");
+                        }
+                        writer.close();
+
+                        System.out.println("Writing Sucessful: address_book.txt");
+                    } catch (IOException e) {
+                        e.getStackTrace();
+                        System.out.println("Error: File not created");
                     }
 
                     break;
