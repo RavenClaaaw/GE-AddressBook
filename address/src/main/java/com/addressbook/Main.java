@@ -1,7 +1,10 @@
 package com.addressbook;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,7 +14,7 @@ public class Main {
         ArrayList<Contact> addressBook = abook.wrapper();
 
         while(true){
-            System.out.println("\n1. ADD \n2. EDIT \n3. DELETE \n4. Display");
+            System.out.println("\n1. ADD \n2. EDIT \n3. DELETE \n4. Display \n5. Search");
             System.out.print("ENTER OPTION:- ");
             int option = scanner.nextInt();
             scanner.nextLine();
@@ -48,6 +51,25 @@ public class Main {
                         if(addressBook.get(i).firstName == firstNameD && addressBook.get(i).lastName == lastNameD){
                             addressBook.remove(i);
                         }
+                    }
+                    break;
+                
+                case 4:
+                    for(int i=0; i<addressBook.size(); i++){
+                        System.out.println(addressBook.get(i).firstName + " " + addressBook.get(i).lastName);
+                    }
+                    break;
+
+                case 5:
+                    System.out.println("Enter City:- ");
+                    String searchCity = scanner.nextLine();
+
+                    List<Contact> cityFilter = addressBook.stream()
+                        .filter(contact -> contact.city.equals(searchCity))
+                        .collect(Collectors.toList());
+
+                    for(Contact contact : cityFilter){
+                        System.out.println(contact.firstName + " " + contact.lastName);
                     }
                     break;
 
